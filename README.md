@@ -50,4 +50,4 @@ $ ./prepare_data
 Go to <http://127.0.0.1:5050>.
 
 
-[（Chotbot项目文档）](https://github.com/yangz12dell/chatbot/blob/main/docs/chatbot.md)
+[（Chotbot项目说明文档）](https://github.com/yangz12dell/chatbot/blob/main/docs/chatbot.md)
