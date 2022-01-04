@@ -1,0 +1,28 @@
+#! /bin/bash
+
+echo "Creating index ..."
+
+# Create index for pattern
+python3 script/create_index.py --index_file=data/pattern_index.json \
+  --index_name=pattern
+
+# Create index for semantic
+python3 script/create_index.py --index_file=data/semantic_index.json \
+  --index_name=semantic
+
+echo "Creating documents ..."
+
+# Create documents for pattern
+python3 script/create_documents.py --data=data/chatbot-qa-100.csv \
+  --index_name=pattern --save=data/pattern_documents.json
+
+# Create documents for semantic
+python3 script/create_documents.py --data=data/chatbot-qa-100.csv \
+  --index_name=semantic --save=data/semantic_documents.json
+
+echo "Indexing documents ..."
+# Index pattern documents
+python3 script/index_documents.py --data=data/pattern_documents.json
+
+# Index semantic documents
+python3 script/index_documents.py --data=data/semantic_documents.json
